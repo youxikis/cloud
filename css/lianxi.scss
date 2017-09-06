@@ -1,0 +1,26 @@
+$color-list:purple,green,blue,yellow,brown,red,orange;
+$map:(
+    'purple':#C970E2 10px 20px,
+    'green':#6EDC30 10px 20px,
+    'blue':#41ABF8 10px 20px,
+    'yellow':#F3CC00 10px 20px,
+    'brown':#9F845D 10px 20px,
+    'red':#F62368 10px 20px,
+    'orange':#F89500 10px 20px
+);
+@each $v in map_keys($map){
+    .color.#{$v}{
+        $l:map_get($map,$v);
+        background: nth($l,1);
+    }
+}
+
+@each $v in map_keys($map){
+    $l:map_get($map,$v);
+    .bac.#{$v}{
+        color: nth($l,1);
+        background: url(../image/packed-5.png);
+        background-position: nth($l,2) nth($l,3);
+        background-repeat: no-repeat;
+    }
+}

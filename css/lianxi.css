@@ -1,0 +1,62 @@
+.color.purple {
+  background: #C970E2; }
+
+.color.green {
+  background: #6EDC30; }
+
+.color.blue {
+  background: #41ABF8; }
+
+.color.yellow {
+  background: #F3CC00; }
+
+.color.brown {
+  background: #9F845D; }
+
+.color.red {
+  background: #F62368; }
+
+.color.orange {
+  background: #F89500; }
+
+.bac.purple {
+  color: #C970E2;
+  background: url(../image/packed-5.png);
+  background-position: 10px 20px;
+  background-repeat: no-repeat; }
+
+.bac.green {
+  color: #6EDC30;
+  background: url(../image/packed-5.png);
+  background-position: 10px 20px;
+  background-repeat: no-repeat; }
+
+.bac.blue {
+  color: #41ABF8;
+  background: url(../image/packed-5.png);
+  background-position: 10px 20px;
+  background-repeat: no-repeat; }
+
+.bac.yellow {
+  color: #F3CC00;
+  background: url(../image/packed-5.png);
+  background-position: 10px 20px;
+  background-repeat: no-repeat; }
+
+.bac.brown {
+  color: #9F845D;
+  background: url(../image/packed-5.png);
+  background-position: 10px 20px;
+  background-repeat: no-repeat; }
+
+.bac.red {
+  color: #F62368;
+  background: url(../image/packed-5.png);
+  background-position: 10px 20px;
+  background-repeat: no-repeat; }
+
+.bac.orange {
+  color: #F89500;
+  background: url(../image/packed-5.png);
+  background-position: 10px 20px;
+  background-repeat: no-repeat; }

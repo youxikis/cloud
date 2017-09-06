@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html ng-app='reminder'>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	
+	<body ng-controller='mainCtrl'>
+		
+		<div class="allLeft">
+			<div class="title">
+				<div class="logo"></div>
+				<div class="tixing">提醒事项<span></span></div>
+				<div class="add" ng-click='addList();saveLocal()'></div>
+			</div>
+			<div class="jihua">
+				<div class="">
+					<div id="biao"></div>
+					<label id='font'>已计划</label>
+				</div>
+				<div class="rowLine"></div>
+			</div>
+			<!---->
+			<div ng-active>
+				<li class="reminder" ng-repeat='v in lists track by $index' >
+					<div class="">
+						<div class="color .bac {{v.theme}}"></div>
+						<input class='timu'  ng-model='v.name' ng-click='saveLocal()'>
+						<div class="gongxiang"></div>
+					</div>
+					<div class="rowLine"></div>
+				</li>
+			</div>
+		</div>
+		<!--右-->
+		<div class="allRight">
+			<div class="sou">
+				<div class="souL">
+					<div class="souTiShi">搜索所有提醒</div>
+					<input type="text" class="field"/>
+					<div class="souImg">
+						<div></div>
+					</div>
+				</div>
+				<div class="souR">
+					<div class="name"><span>用户名</span><span class="xiala"></span></div>
+					<div class="vLine"></div>
+					<div class="help">
+						<div></div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="souBot">
+				<div class="remind">
+					<div class="line"></div>
+					<div class="reL color2 {{lists[cu].theme}}" >{{lists[cu].name}}</div>
+					<div class="reR">
+						<span class="xuanx color2 {{lists[cu].theme}}">选项</span>
+						<div  ng-t>
+							<div class="xuanN">
+								<div class="sanjiao"></div>
+								<div class="xuanNn">
+									<div class="border">
+										<input type="text" class="color2 {{lists[cu].theme}}"  ng-model='lists[cu].name'/>
+									</div>
+									<div class="lbys">列表颜色</div>
+									<ul class="colorSel" >
+										<!--ng-click='lists[cu].theme=v 将环的颜色付给字-->
+										<li class=" " ng-repeat='v in colors' ng-click='lists[cu].theme=v;saveLocal()'>
+											<div class="one back {{v}}"></div>
+											<div class="two back2  dis {{v}}" ng-class='{block:(lists[cu].theme==v)}'></div>
+										</li>
+									</ul>
+									<div class="xia">
+										<div class="del">删除</div>
+										<div class="quxiao">取消</div>
+										<div class="wanc" ng-click='saveLocal()'>完成</div>
+										<div class="liner"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="finished">
+					<div class="line"></div>
+					<div class="fImg"></div>
+					<div class="fFont">
+						<span>已完成：</span>						
+						<span class='finishNum'>{{fNum()}}项</span>
+					</div>
+					<div class="fClear color2 {{lists[cu].theme}}" ng-click='delF();saveLocal()'>清除已完成事项</div>
+					
+				</div>
+				<ul class="fList">
+					
+					<li class="{{lists[cu].theme}}" ng-repeat='v in lists[cu].todos track by $index' ng-if='v.state===1' >
+						<div class="line"></div>
+						<div class="imgk" ng-click='v.state=0;saveLocal()'>
+							<div class="lImg xm2 {{lists[cu].theme}}" ></div>
+						</div>
+						
+						<div class="lCon">
+							<input type="text" ng-model='v.name' ng-keyup='saveLocal()'/>
+						</div>
+						<div class="shan color2 {{lists[cu].theme}}">详细信息</div>
+					</li>
+					
+					<li class="{{lists[cu].theme}}" ng-repeat='v in lists[cu].todos track by $index' ng-if='v.state===0' >
+						<div class="line"></div>
+						<div class="imgk" ng-click='v.state=1;saveLocal()'>
+							<div class="lImg xm1 {{lists[cu].theme}}" ></div>
+						</div>
+						<div class="lCon ">
+							<input type="text"  ng-model='v.name' ng-click='saveLocal();'ng-keyup='saveLocal()'/>
+						</div>
+						<div class="shan color2 {{lists[cu].theme}}">详细信息</div>
+					</li>
+					
+					<li id="add" ng-click='addItem();saveLocal()'>
+						<div class="line"></div>
+						<div class="">新项目...</div>
+					</li>
+				</ul>
+				
+			</div>
+		</div>
+	</body>
+</html>
+<script src="js/jquery.min.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/index.js"></script>
